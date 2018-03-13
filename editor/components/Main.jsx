@@ -1,34 +1,16 @@
 import React from 'react';
-
 import {connect} from 'react-redux';
-import P from 'prop-types';
 
-import Relation from './form/Relation.jsx'
-import Submit from './Submit.jsx'
-
-
-
+import EnitiyForm from './EnitiyForm'
 class Main extends React.Component {
   componentWillMount() {
     
   }
 
   render() {
-    if ((this.props.data === undefined || this.props.oldData === undefined)) {
-      return <p>still loading</p>
-    }
     return (
       <div>
-        <div>
-          <button className="btn btn-info" onClick={this.showEdit}>edit</button>
-          <button className="btn btn-success" onClick={this.showSubmit}>submit</button>
-        </div>
-        <div id="edit">
-          <Relation />
-        </div>
-        <div id="submit" className="hidden">
-          <Submit content={this.props.data.content} oldContent={this.props.oldData.content} />
-        </div>
+        <EnitiyForm />
       </div>
     )
   }
@@ -36,8 +18,6 @@ class Main extends React.Component {
 
 
 Main.propTypes = {
-  data: P.object.isRequired,
-  oldData: P.object.isRequired
 };
 
 export default connect((state) => {
